@@ -1,1 +1,38 @@
-﻿<h1 class="text-center">Explore</h1>
+﻿@model List<Event>
+
+@{
+    ViewData["Title"] = "Explore Events";
+}
+
+<h2 class="mb-4 text-center">Explore Events</h2>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var ev in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                @if (!string.IsNullOrEmpty(ev.ImageUrl))
+                {
+                    <img src="@ev.ImageUrl" class="card-img-top" alt="@ev.Name" style="height: 200px; object-fit: cover;" />
+                }
+
+                <div class="card-body">
+                    <h5 class="card-title">@ev.Name</h5>
+                    <p class="card-text">@ev.Description</p>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Date:</strong> @ev.Date.ToString("dd MMM yyyy")</li>
+                    <li class="list-group-item"><strong>Location:</strong> @ev.Location</li>
+                    <li class="list-group-item"><strong>Organizer:</strong> @ev.Organizer_Name</li>
+                    <li class="list-group-item"><strong>Host:</strong> @ev.HostUser?.UserName</li>
+                    <li class="list-group-item"><strong>Attendees:</strong> @ev.AttendeeCount</li>
+                </ul>
+
+                <div class="card-footer text-end">
+                    <a href="@Url.Action("Dummy Details", "Events", new { id = ev.Id })" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
