@@ -1,38 +1,29 @@
-﻿@model List<Event>
+﻿
+@model List<Event>
 
-@{
-    ViewData["Title"] = "Explore Events";
+<h2 class="text-center mb-3">Explore Events</h2>
+
+@if (Model.Any())
+{   <div class="container gap-4" style="display:flex; flex-wrap:wrap">
+    @foreach (var evt in Model)
+    {
+           
+            <div class="card mb-3 p-3 shadow justify-content-center align-items-center" style="width:60vh ;height:80vh">
+            <img src="@evt.ImageUrl" class="card-img-top mb-3 " alt="@evt.Name"  style="height:30vh;width:30vh"/>
+            <h4>@evt.Name</h4>
+            <p>@evt.Description</p>
+            <p><strong>Date:</strong> @evt.Date.ToString("f")</p>
+            <p><strong>Location:</strong> @evt.Location</p>
+            <p><strong>Organizer:</strong> @evt.Organizer_Name</p>
+            <p><strong>Attendees:</strong> @evt.AttendeeCount</p>
+            </div>
+        
+      
+    }
+    </div>
+}
+else
+{
+    <p>No events found.</p>
 }
 
-<h2 class="mb-4 text-center">Explore Events</h2>
-
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    @foreach (var ev in Model)
-    {
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                @if (!string.IsNullOrEmpty(ev.ImageUrl))
-                {
-                    <img src="@ev.ImageUrl" class="card-img-top" alt="@ev.Name" style="height: 200px; object-fit: cover;" />
-                }
-
-                <div class="card-body">
-                    <h5 class="card-title">@ev.Name</h5>
-                    <p class="card-text">@ev.Description</p>
-                </div>
-
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Date:</strong> @ev.Date.ToString("dd MMM yyyy")</li>
-                    <li class="list-group-item"><strong>Location:</strong> @ev.Location</li>
-                    <li class="list-group-item"><strong>Organizer:</strong> @ev.Organizer_Name</li>
-                    <li class="list-group-item"><strong>Host:</strong> @ev.HostUser?.UserName</li>
-                    <li class="list-group-item"><strong>Attendees:</strong> @ev.AttendeeCount</li>
-                </ul>
-
-                <div class="card-footer text-end">
-                    <a href="@Url.Action("Dummy Details", "Events", new { id = ev.Id })" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
-        </div>
-    }
-</div>

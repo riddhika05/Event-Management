@@ -1,0 +1,10 @@
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\events\art.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\events\marathon.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\events\music.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\events\startup.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\events\tech.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\Slider1.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\Slider2.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\Slider3.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\Slider4.jpg
+C:\Users\riddh\OneDrive\Desktop\Event-Management\EventSphere\wwwroot\images\Slider5.jpg

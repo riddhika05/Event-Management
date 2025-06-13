@@ -1,15 +1,5 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
-wwwroot\images\events\art.jpg
-wwwroot\images\events\marathon.jpg
-wwwroot\images\events\music.jpg
-wwwroot\images\events\startup.jpg
-wwwroot\images\events\tech.jpg
-wwwroot\images\Slider1.jpg
-wwwroot\images\Slider2.jpg
-wwwroot\images\Slider3.jpg
-wwwroot\images\Slider4.jpg
-wwwroot\images\Slider5.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
