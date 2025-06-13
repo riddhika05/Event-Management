@@ -1,0 +1,17 @@
+﻿@model List<Event>
+
+<h2>My Hosted Events</h2>
+
+@foreach (var ev in Model)
+{
+    <div class="card mb-3">
+        <div class="card-body shadow">
+            <img src="@ev.ImageUrl" class="card-img-top mb-3 " alt="@ev.Name" style="height:30vh;width:30vh" />
+            <h5 class="card-title">@ev.Name</h5>
+            <p class="card-text">@ev.Description</p>
+            <p><strong>Date:</strong> @ev.Date</p>
+            <p><strong>Location:</strong> @ev.Location</p>
+            <p><strong>Organizer:</strong> @ev.Organizer_Name</p>
+        </div>
+    </div>
+}

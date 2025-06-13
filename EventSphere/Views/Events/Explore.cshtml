@@ -4,11 +4,11 @@
 <h2 class="text-center mb-3">Explore Events</h2>
 
 @if (Model.Any())
-{   <div class="container gap-4" style="display:flex; flex-wrap:wrap">
+{   
     @foreach (var evt in Model)
     {
            
-            <div class="card mb-3 p-3 shadow justify-content-center align-items-center" style="width:60vh ;height:80vh">
+            <div class="card mb-3 p-3 shadow">
             <img src="@evt.ImageUrl" class="card-img-top mb-3 " alt="@evt.Name"  style="height:30vh;width:30vh"/>
             <h4>@evt.Name</h4>
             <p>@evt.Description</p>
@@ -20,7 +20,7 @@
         
       
     }
-    </div>
+   
 }
 else
 {
