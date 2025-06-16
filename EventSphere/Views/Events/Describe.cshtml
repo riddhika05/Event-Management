@@ -1,0 +1,30 @@
+﻿@using EventSphere.Models
+@model Event
+
+<div class="container my-5">
+    <div class="card shadow border-0">
+        <div class="row g-0">
+            <div class="col-md-5">
+                <img src="@Model.ImageUrl" class="img-fluid rounded-start w-100 h-100 object-fit-cover" alt="@Model.Name" />
+            </div>
+            <div class="col-md-7">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">@Model.Name</h2>
+                    <p class="card-text fs-5">@Model.Description</p>
+
+                    <ul class="list-unstyled mt-4">
+                        <li><i class="bi bi-calendar-event"></i> <strong>Date:</strong> @Model.Date.ToString("dddd, dd MMMM yyyy")</li>
+                        <li><i class="bi bi-geo-alt"></i> <strong>Location:</strong> @Model.Location</li>
+                        <li><i class="bi bi-person-fill"></i> <strong>Organizer:</strong> @Model.Organizer_Name</li>
+                        <li><i class="bi bi-people-fill"></i> <strong>Attendees:</strong> @Model.AttendeeCount</li>
+                    </ul>
+
+                    <div class="mt-4">
+                        <a href="/Events/Register?eventId=@Model.Id" class="btn btn-success me-2">Register</a>
+                        <a href="/Events/Explore" class="btn btn-outline-secondary">Back to Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

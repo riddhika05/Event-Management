@@ -1,6 +1,6 @@
 ﻿using EventSphere.Models;
 using System.ComponentModel.DataAnnotations;
-
+using EventSphere.Models.Validation;
 public class Event
 {
     public int Id { get; set; }
@@ -8,6 +8,7 @@ public class Event
     public string ?Description { get; set; }
 
     [DataType(DataType.DateTime)]
+    [FutureDate]    
     public DateTime Date { get; set; }
     public string Location { get; set; }
     public string Organizer_Name { get; set; }

@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EventSphere.Data.Migrations
+namespace EventSphere.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250610125650_Added-Events")]
-    partial class AddedEvents
+    [Migration("20250614051439_New")]
+    partial class New
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -120,11 +120,9 @@ namespace EventSphere.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HostUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageUrl")
@@ -136,7 +134,6 @@ namespace EventSphere.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Organizer_Name")
@@ -307,8 +304,7 @@ namespace EventSphere.Data.Migrations
                     b.HasOne("CustomUser", "HostUser")
                         .WithMany("HostedEvents")
                         .HasForeignKey("HostUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("HostUser");
                 });
