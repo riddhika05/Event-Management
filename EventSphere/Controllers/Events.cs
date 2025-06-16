@@ -1,4 +1,5 @@
 ﻿using EventSphere.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EventSphere.Controllers
 {
+    //[Route("Events")]
     public class Events : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -38,6 +40,7 @@ namespace EventSphere.Controllers
         }
 
         // GET: Events/Host
+       
         public IActionResult PastEvents()
         {
             var now = DateTime.Now;
@@ -50,6 +53,7 @@ namespace EventSphere.Controllers
         }
 
         [Authorize]
+       
         public IActionResult Host()
         {
             return View();
@@ -58,6 +62,7 @@ namespace EventSphere.Controllers
         // POST: Events/Host
         [Authorize]
         [HttpPost]
+      
         public IActionResult Host(Event model)
         {
             if (ModelState.IsValid)
@@ -85,9 +90,28 @@ namespace EventSphere.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        //[Authorize]
+
+        //[AllowAnonymous]
+        //public IActionResult Hosted_Event()
+        //{
+        //    return View(); // ← This renders the Razor view
+        //}
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[HttpGet("/Events/Get_Hosted_Event")]
+        //public IActionResult Get_Hosted_Event ()
+        //{
+        //    string currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+        //    // Fetch events hosted by this user
+        //    var hostedEvents = _context.Events
+        //        .Where(e => e.HostUserId == currentUserId)
+        //        .ToList();
+
+        //    return Ok(hostedEvents);
+        //}
         [Authorize]
-        [HttpGet]
-        public IActionResult Hosted_Event ()
+        public IActionResult Hosted_Event()
         {
             string currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
@@ -98,19 +122,9 @@ namespace EventSphere.Controllers
 
             return View(hostedEvents);
         }
-
-        //public IActionResult Register()
-        //{
-        //    string currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-        //    _context.Events.Where(e => e.HostUserId == currentUserId).
-
-
-        //    return View();
-
-        //}
-
         [Authorize]
         [HttpGet]
+        
         public async Task<IActionResult> Register(int eventId)
         {
             if (eventId == 0)
@@ -137,12 +151,16 @@ namespace EventSphere.Controllers
 
             return RedirectToAction("Explore"); // or wherever you want to go after registration
         }
+        [HttpGet]
+        [Authorize]
         public IActionResult Show_Registered()
         {
             return View();
         }
 
         [Authorize]
+        [HttpGet]
+        
         public async Task<IActionResult> Registered_Event()
         {
             var user = await _userManager.GetUserAsync(User);

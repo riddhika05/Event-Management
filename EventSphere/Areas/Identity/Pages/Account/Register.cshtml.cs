@@ -22,6 +22,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EventSphere.Areas.Identity.Pages.Account
 {
+    [AllowAnonymous]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<CustomUser> _signInManager;

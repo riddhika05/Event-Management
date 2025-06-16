@@ -1,24 +1,7 @@
-﻿@* @model List<Event>
-
-<h2>My Hosted Events</h2>
-
-@foreach (var ev in Model)
-{
-    <div class="card mb-3">
-        <div class="card-body shadow">
-            <img src="@ev.ImageUrl" class="card-img-top mb-3 " alt="@ev.Name" style="height:30vh;width:30vh" />
-            <h5 class="card-title">@ev.Name</h5>
-           
-            <p><strong>Date:</strong> @ev.Date</p>
-            <p><strong>Location:</strong> @ev.Location</p>
-            <p><strong>Organizer:</strong> @ev.Organizer_Name</p>
-            <a href="/Events/Describe?eventId=@ev.Id" class="btn btn-primary" style="font-size:large">View Details</a>
-        </div>
-    </div>
-} *@
+﻿
 @model List<Event>
 
-<h2 class="text-center my-5 display-5 fw-bold text-primary">My Registered Events</h2>
+<h2 class="text-center my-5 display-5 fw-bold text-primary">My Hosted Events</h2>
 
 @if (Model.Any())
 {
@@ -48,6 +31,21 @@
 else
 {
     <div class="alert alert-info text-center mt-4">
-        <strong>You haven’t registered for any events yet.</strong>
+        <strong>You haven’t hosted any events yet.</strong>
     </div>
 }
+@* @{
+    ViewData["Title"] = "My Hosted Events";
+}
+
+<h2 class="text-center my-4">My Hosted Events</h2>
+
+<div class="container">
+    <div id="hostedEventsContainer" class="row g-4">
+        <!-- Events will be injected here by JS -->
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/hostedEvents.js"></script>
+} *@

@@ -4,6 +4,7 @@ wwwroot\images\Slider1.jpg
 wwwroot\images\Slider2.jpg
 wwwroot\images\Slider3.jpg
 wwwroot\images\Slider5.jpg
+wwwroot\js\hostedEvents.js
 wwwroot\js\scripts.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
